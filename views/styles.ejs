@@ -2,6 +2,25 @@
 <html lang="en">
 <%- include('./partials/head.ejs') %>
 <body>
-    <h1>Explore page</h1>
+    <%- include('./partials/nav.ejs') %>
+    <section class="styles p-4 mt-3">
+        <div class="container">
+            <% for(var i=0;i<=14;i++) {%>
+            <div class="row g-3 my-3">
+                <% for(var j=1;j<=3;j++) {%>
+                <div class="col-4">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="/style_images/style_<%=i*3+j%>.jpg" class="img-thumbnail" alt="">
+                            <button class="btn btn-danger btn-lg mt-2">SELECT</button>
+                        </div>
+                    </div>
+                </div>
+                <% } %> 
+            </div>
+            <% } %>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
