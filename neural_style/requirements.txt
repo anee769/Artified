@@ -1,6 +1,7 @@
 clearml
+clearml-agent
 numpy
 torch
 torchvision
-PIL
+pillow
 collections
