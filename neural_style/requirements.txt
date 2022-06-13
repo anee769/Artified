@@ -1,0 +1,6 @@
+clearml
+numpy
+torch
+torchvision
+PIL
+collections
