@@ -4,4 +4,3 @@ numpy
 torch
 torchvision
 pillow
-collections
