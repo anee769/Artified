@@ -1,5 +1,3 @@
-clearml
-clearml-agent
 numpy
 torch
 torchvision

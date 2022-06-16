@@ -14,9 +14,6 @@ import utils
 from transformer_net import TransformerNet
 from vgg import Vgg16
 
-from clearml import Task
-
-task = Task.init(project_name='Artified', task_name='Artified Inference')
 
 def check_paths(args):
     try:
