@@ -3,8 +3,37 @@
 <%- include('./partials/head.ejs') %>
 <body>
     <%- include('./partials/nav.ejs') %>
-
-    <h1>convert page</h1>
+    <div class="page-top p-4 text-center">
+        <h3>You can check out all the available styles on Explore Page.</h3>
+    </div>
+    <div class="form-container container">
+        <form action="/download" method="POST" enctype="multipart/form-data">
+            <div class="form-group p-3">
+                <label for="input-image" class="p-2">Input Image:</label>
+                <input type="file" id="input-image" name="input" class="form-control form-control-lg" accept="image/*" required>
+                <% if(err) { %>
+                    <div class="text-danger">
+                        <%=err%>
+                    </div>
+                <% } %>
+            </div>
+            <div class="form-group p-3">
+                <label for="style-image" class="p-2">Style Image:</label>
+                <select name="style" id="style-image" class="form-control form-control-lg">
+                    <% for(let i=1;i<=45;i++) { %>
+                        <% if(i==id) { %>
+                            <option value="<%=i%>" selected>Style <%=i%></option>
+                        <% } else { %>
+                            <option value="<%=i%>">Style <%=i%></option>
+                        <% } %>
+                    <% } %>
+                </select>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-lg px-5 my-4">Artify</button>
+            </div>
+        </form>
+    </div>
     
     <%- include('./partials/footer.ejs') %>
 </body>
