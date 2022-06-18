@@ -3,6 +3,11 @@
     margin: 0;
     box-sizing: border-box;
 }
+ 
+a {
+    text-decoration: none;
+    color: white;
+}
 
 .navbar {
     padding: 0;
@@ -23,7 +28,7 @@ nav img {
 }
 
 .nav-item a {
-    color: #333 !important;
+    color: #004 !important;
 }
 
 .nav-item a:hover {
@@ -35,23 +40,50 @@ nav img {
     background-image:
       linear-gradient(
         to right, 
-        #fffffe, #f4f7f8
+        #ffeeee, #efefe3
       );
 }
 
+.index {
+    background-image: url('/index-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    color:white;
+}
 .page-top h1 {
-    color: #446;
-    font-weight: 475;
+    font-weight: 480;
+}
+
+.page-top h3 {
+    font-weight: 480;
 }
 
 .page-top p {
-    font-weight: 400;
-    color: #668;
+    font-weight: 450;
     font-size: 20px;
 }
 
+.example {
+    width: 100%;
+    overflow-x: hidden;
+    border-radius: 3px;
+    background-image:
+    linear-gradient(
+      to right, 
+      #00a, #efefe3
+    );
+    color:white;
+}
+.example h1 {
+    font-weight: 500;
+}
+.example img {
+    width: 80%;
+}
+
 .active {
-    border-bottom: 4px solid rgb(246, 7, 23);
+    border-bottom: 4px solid rgb(0, 0, 80);
 }
 
 .style-container {

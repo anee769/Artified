@@ -3,6 +3,42 @@
 <%- include('./partials/head.ejs') %>
 <body>
     <%- include('./partials/nav.ejs') %>
+
+    <div class="page-top p-5 m-0 index">
+        <h1 class="text-center display-1 py-2">Hi there!!!</h1>
+        <h3 class="text-center display-3 py-4">Welcome to Artified</h3>
+        <p class="display-6 pt-2">This is a website to stylize your images using famous art styles. You can check out all the available styles on <a href="/explore"><b>Explore</b></a> page</p>
+        <p class="display-6 py-1">On the <a href="/convert"><b>Convert</b></a> page, you can upload the image you wanna artify and then you can choose your Favorite style to apply it on your image.</p>
+        <p class="display-6 py-1">From there you'll be redirected to the Download page.</p>
+    </div>
+
+    <div class="page-top p-4 m-0">
+        <h1 class="display-6 py-2">How does it work?</h1>
+        <p class="display-6 py-1">The image you upload and the style you select is sent to the backend where we have our trained <b>PyTorch Neural Transfer style</b> model.</p>
+        <p class="display-6 py-1">The model stylizes your image using the selected style and the output is retreived and directed to the Download page.</p>
+    </div>
+
+    <div class="example text-center p-2 mb-5 mx-auto">
+        <h1 class="display-6 py-2">Example</h1>
+        <div class="row g-4 my-5 py-3 align-items-center justify-content-between">
+            <div class="col-3">
+                <img src="/river.jpg" class="img-thumbnail" alt="">
+            </div>
+            <div class="col-1">
+                <img src="/plus.jpg" class="img-flex" alt="">
+            </div>
+            <div class="col-3">
+                <img src="/style_images/style_1.jpg" class="img-thumbnail" alt="">
+            </div>
+            <div class="col-1">
+                <img src="/equals.png" class="img-flex" alt="">
+            </div>
+            <div class="col-3">
+                <img src="/sample_output.jpg" class="img-thumbnail" alt="">
+            </div>
+        </div>
+    </div>
+
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>

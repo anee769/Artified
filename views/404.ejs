@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs') %>
-<body>
+<body class="bg-light">
     <%- include('./partials/nav.ejs') %>
-    <h1>404 page</h1>
+
+    <div class="text-center container-flex p-5" style="height: 70vh;">
+        <h1 class="display-1">OOPS!!!</h1>
+        <div class="container p-5 text-center">
+            <img class="img-flex" src="/404.jpg" style="height: 25vh;" alt="">
+        </div>
+        <h6 class="display-6">Page not found</h6>
+    </div>
+    
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>
