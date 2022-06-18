@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="page-top p-3 m-0">
+        <h1 class="text-center">Glad to see you here!!!</h1>
+        <p class="text-center">You can explore all the styles available here to artify your images in unique and famous artworks of renowned artists.</p>
+    </div>
+    <section class="styles py-3 px-5 m-0">
+        <div class="container-flex">
+            <% for(var i=0;i<=14;i++) {%>
+            <div class="row g-4 my-3">
+                <% for(var j=1;j<=3;j++) {%>
+                <div class="col-4">
+                    <div class="card bg-light">
+                        <a href="/explore/<%=i*3+j%>">
+                            <div class="card-body text-center">
+                                <div class="bg-image hover-zoom">
+                                    <img src="/style_images/style_<%=i*3+j%>.jpg" class="img-thumbnail" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <% } %> 
+            </div>
+            <% } %>
+        </div>
+    </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

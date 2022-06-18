@@ -10,10 +10,14 @@ app.get('/', (req,res) => {
     res.render('index', { title:'Home'});
 });
 
-app.get('/styles', (req,res) => {
-    res.render('styles',{title:'Explore'});
+app.get('/explore', (req,res) => {
+    res.render('explore',{title:'Explore'});
 });
 
+app.get('/explore/:id', (req,res) => {
+    const id = req.params.id;
+    res.render('style',{title:'Explore',id: id});
+});
 app.get('/convert', (req,res) => {
     res.render('convert',{title:'Artify your images'});
 });

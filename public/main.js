@@ -1,15 +1,13 @@
 const pageTabs = document.querySelectorAll('.tabs');
 window.onload = selectTab;
 function selectTab() {
-    console.log('hi');
     removeBorder();
     var path = window.location.pathname;
     var page = path.split("/").pop();
-    console.log('hi',page);
     if(page=='') {
         const home = document.getElementById('home');
         home.classList.add('active');
-    } else if(page=='styles') {
+    } else if(page=='explore') {
         const explore = document.getElementById('explore');
         explore.classList.add('active');
     } else if(page=='convert') {
