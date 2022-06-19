@@ -31,16 +31,12 @@ app.get('/convert', (req,res) => {
     res.render('convert',{title:'Artify your images',id,err:''});
 });
 
-app.get('/download', (req,res) => {
-    res.render('download',{title:'Download'});
-});
-
 app.post('/download', (req,res) => {
     var file_path="";
     var style=0;
     var form = new formidable.IncomingForm();
     var output_filepath="";
-    const script_path = path.join(__dirname,'neural_style','train.py');
+    const script_path = path.join(__dirname,'neural_style','neural_style.py');
     form.on('file', (field, file) => {
         if(file.mimetype.startsWith('image/')) {
             form.uploadDir = path.join(__dirname,'public','uploads');
@@ -49,11 +45,10 @@ app.post('/download', (req,res) => {
                 file_path = path.join(__dirname,'public','uploads',file.originalFilename);
                 const python = spawn('python',[script_path,'--content-image',file_path,'--style-id',style]);
                 python.stdout.on('data', (data) => {
-                    output_filepath=data.toString();
+                    output_filename=data.toString().trim();
+                    res.render('download',{title:'Download',output_filename});
                 });
             });
-
-            res.render('download',{title:'Download'});
         } else {
              return res.render('convert',{title:'Artify your images',id:1,err:'The file specified is not an image. Please try Again.'});
         }

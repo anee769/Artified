@@ -119,8 +119,17 @@ nav img {
     box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2), 0 8px 24px 0 rgba(0, 0, 0, 0.19)
 }
 
-.styles {
+.download-container{
+    height: 57vh;
     background: #fffeee;
+}
+.download-container button {
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+
+.styles {
+    background: #dedeff;
 }
 
 .styles img {

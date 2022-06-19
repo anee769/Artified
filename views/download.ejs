@@ -3,9 +3,20 @@
 <%- include('./partials/head.ejs') %>
 <body>
     <%- include('./partials/nav.ejs') %>
+    <div class="page-top p-3 m-0">
+        <h1 class="text-center">Hi!!!</h1>
+        <p class="text-center">You can click on the download button below to download your artified image.</p>
+    </div>
 
-    <h1>Download page</h1>
-    
+    <section class="container-flex text-center download-container">
+        <a href="/output/<%=output_filename%>" download>
+            <button class="btn btn-lg btn-dark px-5 m-5">Download  <i class="bi bi-download"></i> </button>
+        </a>
+        <h3 class="text-start px-5 py-4 text-dark">THANK YOU!!! &#128151;</h3>
+        <h5 class="text-start px-5 text-dark">I hope it was a great experience for you and you will like your artified image.</h5>
+        <h5 class="text-start px-5 text-dark">Hope to see you again. &#128516;</h5>
+    </section>
+
     <%- include('./partials/footer.ejs') %>
 </body>
 </html>

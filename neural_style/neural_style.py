@@ -46,9 +46,10 @@ def stylize(args):
         style_model.to(device)
         output = style_model(content_image, style_id = [args.style_id]).cpu()
 
-    output_filepath=args.output_image+'/style_'+str(args.style_id)+'_'+file_name
+    output_filename='style_'+str(args.style_id)+'_'+file_name
+    output_filepath=os.path.join(args.output_image,output_filename)
     utils.save_image(output_filepath, output[0])
-    print(output_filepath)
+    print(output_filename)
 
 def main():
     main_arg_parser = argparse.ArgumentParser(description="parser for fast-neural-style")
