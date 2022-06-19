@@ -28,8 +28,9 @@ def check_paths(args):
 
 def stylize(args):
     device = torch.device("cuda" if args.cuda else "cpu")
-
-    content_image = utils.load_image(args.content_image, scale=args.content_scale)
+    file_path = os.path.join(os.getcwd(),args.content_image)
+    content_image = utils.load_image(file_path, scale=args.content_scale)
+    _, file_name = os.path.split(file_path)
     content_transform = transforms.Compose([
         transforms.ToTensor(),
         transforms.Lambda(lambda x: x.mul(255))
@@ -40,12 +41,14 @@ def stylize(args):
 
     with torch.no_grad():
         style_model = TransformerNet(style_num=args.style_num)
-        state_dict = torch.load('trained_model/epoch_2_Sun_Jun_12_102348_2022_100000_10000000000.model')
+        state_dict = torch.load(os.path.join(os.getcwd(),'neural_style','trained_model','epoch_2_Sun_Jun_12_102348_2022_100000_10000000000.model'))
         style_model.load_state_dict(state_dict)
         style_model.to(device)
         output = style_model(content_image, style_id = [args.style_id]).cpu()
 
-    utils.save_image(args.output_image+'_style'+str(args.style_id)+'.jpg', output[0])
+    output_filepath=args.output_image+'/style_'+str(args.style_id)+'_'+file_name
+    utils.save_image(output_filepath, output[0])
+    print(output_filepath)
 
 def main():
     main_arg_parser = argparse.ArgumentParser(description="parser for fast-neural-style")
@@ -53,7 +56,7 @@ def main():
                                  help="path to content image you want to stylize")
     main_arg_parser.add_argument("--content-scale", type=float, default=None,
                                  help="factor for scaling down the content image")
-    main_arg_parser.add_argument("--output-image", type=str, default="output",
+    main_arg_parser.add_argument("--output-image", type=str, default=os.path.join(os.getcwd(),'public','output'),
                                  help="path for saving the output image")
     main_arg_parser.add_argument("--cuda", type=int, default=1,
                                  help="set it to 1 for running on GPU, 0 for CPU")
